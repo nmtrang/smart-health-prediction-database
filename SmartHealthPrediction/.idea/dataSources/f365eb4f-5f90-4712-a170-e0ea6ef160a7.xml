@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="jdbc:sqlserver://DESKTOP-BVPIICE\SQLEXPRESS ;database=SmartHealthPrediction">
+  <database-model serializer="dbm" dbms="MSSQL" family-id="MSSQL" format-version="4.18">
+    <root id="1">
+      <ServerVersion>15.0.2000</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="ApressFinancial">
+      <ObjectId>5</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="3" parent="1" name="SmartHealthPrediction">
+      <ObjectId>7</ObjectId>
+      <Current>1</Current>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+      <Fingerprint>7.44269/890C61B2-48D1-4AD9-B666-EFAB9C45EDB7@DESKTOP-BVPIICE\SQLEXPRESS</Fingerprint>
+    </database>
+    <database id="4" parent="1" name="Student">
+      <ObjectId>6</ObjectId>
+    </database>
+    <database id="5" parent="1" name="master">
+      <ObjectId>1</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="6" parent="1" name="model">
+      <ObjectId>3</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="7" parent="1" name="msdb">
+      <ObjectId>4</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <database id="8" parent="1" name="tempdb">
+      <ObjectId>2</ObjectId>
+      <Collation>SQL_Latin1_General_CP1_CI_AS</Collation>
+    </database>
+    <schema id="9" parent="3" name="INFORMATION_SCHEMA">
+      <ObjectId>3</ObjectId>
+    </schema>
+    <schema id="10" parent="3" name="db_accessadmin">
+      <ObjectId>16385</ObjectId>
+    </schema>
+    <schema id="11" parent="3" name="db_backupoperator">
+      <ObjectId>16389</ObjectId>
+    </schema>
+    <schema id="12" parent="3" name="db_datareader">
+      <ObjectId>16390</ObjectId>
+    </schema>
+    <schema id="13" parent="3" name="db_datawriter">
+      <ObjectId>16391</ObjectId>
+    </schema>
+    <schema id="14" parent="3" name="db_ddladmin">
+      <ObjectId>16387</ObjectId>
+    </schema>
+    <schema id="15" parent="3" name="db_denydatareader">
+      <ObjectId>16392</ObjectId>
+    </schema>
+    <schema id="16" parent="3" name="db_denydatawriter">
+      <ObjectId>16393</ObjectId>
+    </schema>
+    <schema id="17" parent="3" name="db_owner">
+      <ObjectId>16384</ObjectId>
+    </schema>
+    <schema id="18" parent="3" name="db_securityadmin">
+      <ObjectId>16386</ObjectId>
+    </schema>
+    <schema id="19" parent="3" name="dbo">
+      <ObjectId>1</ObjectId>
+      <IntrospectionTimestamp>2021-03-16.07:42:20.470</IntrospectionTimestamp>
+      <Current>1</Current>
+    </schema>
+    <schema id="20" parent="3" name="guest">
+      <ObjectId>2</ObjectId>
+    </schema>
+    <schema id="21" parent="3" name="sys">
+      <ObjectId>4</ObjectId>
+    </schema>
+    <table id="22" parent="19" name="AdminLogin">
+      <ObjectId>901578250</ObjectId>
+      <CreatedTimestamp>2021-03-16.06:47:20.137</CreatedTimestamp>
+      <ModifiedTimestamp>2021-03-16.07:42:19.990</ModifiedTimestamp>
+    </table>
+    <table id="23" parent="19" name="DoctorLogin">
+      <ObjectId>933578364</ObjectId>
+      <CreatedTimestamp>2021-03-16.07:38:46.210</CreatedTimestamp>
+      <ModifiedTimestamp>2021-03-16.07:38:46.210</ModifiedTimestamp>
+    </table>
+    <table id="24" parent="19" name="PatientLogin">
+      <ObjectId>917578307</ObjectId>
+      <CreatedTimestamp>2021-03-16.07:38:46.200</CreatedTimestamp>
+      <ModifiedTimestamp>2021-03-16.07:38:46.200</ModifiedTimestamp>
+    </table>
+    <column id="25" parent="22" name="username">
+      <Position>1</Position>
+      <DataType>varchar(20 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="22" name="password">
+      <Position>2</Position>
+      <DataType>varchar(20 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="23" name="username">
+      <Position>1</Position>
+      <DataType>varchar(20 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="23" name="password">
+      <Position>2</Position>
+      <DataType>varchar(20 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="24" name="username">
+      <Position>1</Position>
+      <DataType>varchar(20 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="24" name="password">
+      <Position>2</Position>
+      <DataType>varchar(20 char)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+  </database-model>
+</dataSource>
