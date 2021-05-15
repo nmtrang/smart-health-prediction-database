@@ -1,6 +1,6 @@
 # How to RUN? Please don't ignore this. IMPORTANT!!!!!
 
-Please run the folder SmartHealthPrediction as a Project Folder instead of the outside folder. Otherwise, errors may occur.
+After cloning, please run the folder SmartHealthPrediction as a Project Folder instead of the outside folder. Otherwise, errors may occur.
 
 <img src="https://i.imgur.com/I7KtBAS.jpeg" alt="Run this folder as a Project Folder" style="max-width:100%;" >
 
