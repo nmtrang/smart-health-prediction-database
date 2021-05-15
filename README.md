@@ -1,4 +1,4 @@
-# How to RUN?
+# How to RUN? Please don't ignore this. IMPORTANT!!!!!
 
 Please run the folder SmartHealthPrediction as a Project Folder instead of the outside folder. Otherwise, errors may occur.
 
