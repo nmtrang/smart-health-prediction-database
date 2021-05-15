@@ -3,10 +3,10 @@ package disease;
 import java.sql.*;
 
 public abstract class DiseaseAbstract {
-    public static final String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;database=SHPS;integratedSecurity=true;";
+    public static final String url = "jdbc:sqlserver://localhost;database=SHPS;integratedSecurity=true;";
     public static Connection connection;
-    public static ResultSet resultSet;
     public static Statement statement;
+    public static ResultSet resultSet;
     {
         try {
             connection = DriverManager.getConnection(url);

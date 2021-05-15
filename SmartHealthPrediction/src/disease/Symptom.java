@@ -33,9 +33,12 @@ public class Symptom extends DiseaseAbstract {
             resultSet = statement.executeQuery("select * from Symptom");
 
             while (resultSet.next()) {
+                String desc = "";
+                if (resultSet.getString(3) != null)
+                    desc = resultSet.getString(3).trim();
                 Symptom s = new Symptom(resultSet.getInt(1),
                         resultSet.getString(2).trim(),
-                        resultSet.getString(3));
+                        desc);
                 symptomList.add(s);
             }
         } catch (SQLException throwables) {

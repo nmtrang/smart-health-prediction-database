@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 public abstract class User {
-    private final String url = "jdbc:sqlserver://localhost\\SQLEXPRESS;database=SHPS;integratedSecurity=true;";
+    private final String url = "jdbc:sqlserver://localhost;database=SHPS;integratedSecurity=true;";
     public static Connection connection;
     public static Statement statement;
     public static PreparedStatement preparedStatement;
@@ -155,6 +155,12 @@ public abstract class User {
         panel.add(b1, gbc);
 
         return panel;
+    }
+
+    public String checkNull(String str) {
+        if (str == null)
+            return "";
+        else return str.trim();
     }
 
     public String[] parseDob(String dob) {

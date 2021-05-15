@@ -25,9 +25,12 @@ public class Disease extends DiseaseAbstract {
         try {
             resultSet = statement.executeQuery("select * from Disease");
             while (resultSet.next()) {
+                String desc = "";
+                if (resultSet.getString(3) != null)
+                    desc = resultSet.getString(3).trim();
                 Disease d = new Disease(resultSet.getInt(1),
                         resultSet.getString(2).trim(),
-                        resultSet.getString(3).trim());
+                        desc);
                 diseaseList.add(d);
             }
         } catch (SQLException throwables) {

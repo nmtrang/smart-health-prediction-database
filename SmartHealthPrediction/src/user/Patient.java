@@ -581,12 +581,12 @@ public class Patient extends User {
                 String user = resultSet.getString(9).trim();
                 if ((id == getId()) || user.equals(getUsername()) ) {
                     setId(resultSet.getInt(1));
-                    setFName(resultSet.getString(2).trim());
-                    setMName(resultSet.getString(3).trim());
-                    setLName(resultSet.getString(4).trim());
-                    setPhone(resultSet.getString(5).trim());
-                    setEmail(resultSet.getString(6).trim());
-                    setAddress(resultSet.getString(7).trim());
+                    setFName(checkNull(resultSet.getString(2)));
+                    setMName(checkNull(resultSet.getString(3)));
+                    setLName(checkNull(resultSet.getString(4)));
+                    setPhone(checkNull(resultSet.getString(5)));
+                    setEmail(checkNull(resultSet.getString(6)));
+                    setAddress(checkNull(resultSet.getString(7)));
                     setDob(resultSet.getObject(8).toString().trim());
                     setUsername(resultSet.getString(9).trim());
                     setPassword(resultSet.getString(10).trim());

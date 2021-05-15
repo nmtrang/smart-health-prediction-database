@@ -442,28 +442,39 @@ public class Doctor extends User {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!nameArea.getText().isEmpty()) {
-                    try {
-                        preparedStatement = connection.prepareStatement("insert into Disease (d_name, description) values (?, ?)");
-                        preparedStatement.setString(1, nameArea.getText());
-                        preparedStatement.setString(2, descArea.getText());
-                        preparedStatement.executeUpdate();
-                        int id = -1;
-                        resultSet = statement.executeQuery("select * from Disease");
-                        while (resultSet.next()) {
-                            id = resultSet.getInt(1);
+                    ArrayList<Disease> allDiseases = Disease.getAllDiseases();
+                    boolean flag = true;
+                    for (Disease aDisease : allDiseases) {
+                        if (nameArea.getText().equalsIgnoreCase(aDisease.getName())) {
+                            flag = false;
+                            MyDialog.messageDialog("Repeated disease.\nAdd a new one.", "DISEASE ERROR", JOptionPane.ERROR_MESSAGE, null);
+                            break;
                         }
-                        Disease disease = new Disease(id);
-                        preparedStatement = connection.prepareStatement("insert into DiseaseClassification (disease_id, specialty_id) values (?, ?)");
-                        preparedStatement.setInt(1, disease.getId());
-                        preparedStatement.setInt(2, specialty.getId());
-                        preparedStatement.executeUpdate();
-                        GUI.selectFromTable("Disease");
-                        GUI.selectFromTable("DiseaseClassification");
-                    } catch (SQLException throwables) {
-                        throwables.printStackTrace();
                     }
-
-                    refresh.doClick();
+                    if (flag) {
+                        try {
+                            preparedStatement = connection.prepareStatement("insert into Disease (d_name, description) values (?, ?)");
+                            preparedStatement.setString(1, nameArea.getText());
+                            preparedStatement.setString(2, descArea.getText());
+                            preparedStatement.executeUpdate();
+                            int id = -1;
+                            resultSet = statement.executeQuery("select * from Disease");
+                            while (resultSet.next()) {
+                                id = resultSet.getInt(1);
+                            }
+                            Disease disease = new Disease(id);
+                            preparedStatement = connection.prepareStatement("insert into DiseaseClassification (disease_id, specialty_id) values (?, ?)");
+                            preparedStatement.setInt(1, disease.getId());
+                            preparedStatement.setInt(2, specialty.getId());
+                            preparedStatement.executeUpdate();
+                            GUI.selectFromTable("Disease");
+                            GUI.selectFromTable("DiseaseClassification");
+                        } catch (SQLException throwables) {
+                            throwables.printStackTrace();
+                        }
+                        MyDialog.messageDialog("Added successfully.", "DISEASE", JOptionPane.INFORMATION_MESSAGE, null);
+                        refresh.doClick();
+                    }
                 }
             }
         });
@@ -471,30 +482,41 @@ public class Doctor extends User {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!nameArea.getText().isEmpty()) {
-                    try {
-                        preparedStatement = connection.prepareStatement("insert into Symptom (s_name, s_description) values (?, ?)");
-                        preparedStatement.setString(1, nameArea.getText());
-                        preparedStatement.setString(2, descArea.getText());
-                        preparedStatement.executeUpdate();
-                        int id = -1;
-                        resultSet = statement.executeQuery("select * from Symptom");
-                        while (resultSet.next()) {
-                            id = resultSet.getInt(1);
+                    ArrayList<Symptom> allSymptoms = Symptom.getAllSymptoms();
+                    boolean flag = true;
+                    for (Symptom aSymptom : allSymptoms) {
+                        if (nameArea.getText().equalsIgnoreCase(aSymptom.getName())) {
+                            flag = false;
+                            MyDialog.messageDialog("Repeated symptom.\nAdd a new one.", "SYMPTOM ERROR", JOptionPane.ERROR_MESSAGE, null);
+                            break;
                         }
-                        Disease disease = (Disease) diseaseCB.getSelectedItem();
-                        Symptom symptom = new Symptom(id);
-                        preparedStatement = connection.prepareStatement("insert into SymptomClassification (symptom_id, disease_id) values (?, ?)");
-                        preparedStatement.setInt(1, symptom.getId());
-                        preparedStatement.setInt(2, disease.getId());
-                        preparedStatement.executeUpdate();
-
-                        GUI.selectFromTable("Symptom");
-                        GUI.selectFromTable("SymptomClassification");
-                    } catch (SQLException throwables) {
-                        throwables.printStackTrace();
                     }
+                    if (flag) {
+                        try {
+                            preparedStatement = connection.prepareStatement("insert into Symptom (s_name, s_description) values (?, ?)");
+                            preparedStatement.setString(1, nameArea.getText());
+                            preparedStatement.setString(2, descArea.getText());
+                            preparedStatement.executeUpdate();
+                            int id = -1;
+                            resultSet = statement.executeQuery("select * from Symptom");
+                            while (resultSet.next()) {
+                                id = resultSet.getInt(1);
+                            }
+                            Disease disease = (Disease) diseaseCB.getSelectedItem();
+                            Symptom symptom = new Symptom(id);
+                            preparedStatement = connection.prepareStatement("insert into SymptomClassification (symptom_id, disease_id) values (?, ?)");
+                            preparedStatement.setInt(1, symptom.getId());
+                            preparedStatement.setInt(2, disease.getId());
+                            preparedStatement.executeUpdate();
 
-                    refresh.doClick();
+                            GUI.selectFromTable("Symptom");
+                            GUI.selectFromTable("SymptomClassification");
+                        } catch (SQLException throwables) {
+                            throwables.printStackTrace();
+                        }
+                        MyDialog.messageDialog("Added successfully.", "SYMPTOM", JOptionPane.INFORMATION_MESSAGE, null);
+                        refresh.doClick();
+                    }
                 }
             }
         });
@@ -522,12 +544,12 @@ public class Doctor extends User {
                 String user = resultSet.getString(10).trim();
                 if ((id == getId()) || user.equals(getUsername()) ) {
                     setId(resultSet.getInt(1));
-                    setFName(resultSet.getString(2).trim());
-                    setMName(resultSet.getString(3).trim());
-                    setLName(resultSet.getString(4).trim());
-                    setPhone(resultSet.getString(5).trim());
-                    setEmail(resultSet.getString(6).trim());
-                    setAddress(resultSet.getString(7).trim());
+                    setFName(checkNull(resultSet.getString(2)));
+                    setMName(checkNull(resultSet.getString(3)));
+                    setLName(checkNull(resultSet.getString(4)));
+                    setPhone(checkNull(resultSet.getString(5)));
+                    setEmail(checkNull(resultSet.getString(6)));
+                    setAddress(checkNull(resultSet.getString(7)));
                     setDob(resultSet.getObject(8).toString().trim());
                     this.specialtyId = resultSet.getInt(9);
                     setUsername(resultSet.getString(10).trim());
