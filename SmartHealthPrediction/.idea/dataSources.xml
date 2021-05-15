@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="Student@DESKTOP-BVPIICE" uuid="e8737777-55e0-4a50-9b5b-0c78e342d6fa">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://DESKTOP-BVPIICE\SQLEXPRESS;database=Student</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="@localhost" uuid="1711fb9e-2af3-4146-abe8-da13c4dd3c0d">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://localhost</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="jdbc:sqlserver://DESKTOP-BVPIICE\SQLEXPRESS ;database=SmartHealthPrediction" uuid="f365eb4f-5f90-4712-a170-e0ea6ef160a7">
+    <data-source source="LOCAL" name="SHPS@localhost" uuid="7cefd3a3-b62b-4df5-8cf8-f64b5938a8b9">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://DESKTOP-BVPIICE\SQLEXPRESS ;database=SmartHealthPrediction</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://localhost\SQLEXPRESS;database=SHPS</jdbc-url>
     </data-source>
   </component>
 </project>

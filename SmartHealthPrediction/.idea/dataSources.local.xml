@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="Student@DESKTOP-BVPIICE" uuid="e8737777-55e0-4a50-9b5b-0c78e342d6fa">
-      <database-info product="Microsoft SQL Server" version="15.00.2000" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.4 for SQL Server" driver-version="7.4.1.0" dbms="MSSQL" exact-version="15.0.2000">
+    <data-source name="@localhost" uuid="1711fb9e-2af3-4146-abe8-da13c4dd3c0d">
+      <database-info product="Microsoft SQL Server" version="15.00.2000" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.4 for SQL Server" driver-version="7.4.1.0" dbms="MSSQL" exact-version="15.0.2000" exact-driver-version="7.4">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <auth-provider>ms-sso</auth-provider>
-      <user-name>sa</user-name>
-      <schema-mapping />
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
-    <data-source name="@localhost" uuid="1711fb9e-2af3-4146-abe8-da13c4dd3c0d">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
-      <auth-provider>ms-sso</auth-provider>
-      <schema-mapping />
-    </data-source>
-    <data-source name="jdbc:sqlserver://DESKTOP-BVPIICE\SQLEXPRESS ;database=SmartHealthPrediction" uuid="f365eb4f-5f90-4712-a170-e0ea6ef160a7">
+    <data-source name="SHPS@localhost" uuid="7cefd3a3-b62b-4df5-8cf8-f64b5938a8b9">
       <database-info product="Microsoft SQL Server" version="15.00.2000" jdbc-version="4.2" driver-name="Microsoft JDBC Driver 7.4 for SQL Server" driver-version="7.4.1.0" dbms="MSSQL" exact-version="15.0.2000" exact-driver-version="7.4">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
