@@ -172,7 +172,7 @@ public class GUI {
         String[] type = new String[1];
         type[0] = "A Doctor";
         MyComboBox<String> typeCB = new MyComboBox<>(new String[]{"A Doctor", "A Patient"});
-
+        typeCB.setSelectedIndex(0);
         MyLabel specialtyLabel = new MyLabel("      Your Specialty:");
         specialtyLabel.setCommonLabel();
         int countSpecialty = getNumberOfRows("Specialty");
@@ -188,6 +188,7 @@ public class GUI {
         }
 
         MyComboBox<String> specialtyCB = new MyComboBox<>(spStr);
+        specialtyCB.setSelectedIndex(0);
         typeCB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -246,6 +247,7 @@ public class GUI {
         buttonPanel.setBackground(Color.BLACK);
         buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.setPreferredSize(new Dimension(800, 60));
+
         MyButton go = new MyButton("  Sign Up  ");
         go.setLeftButton();
         go.addActionListener(new ActionListener() {
@@ -265,15 +267,20 @@ public class GUI {
                 String dob = dobCB[2].getSelectedItem() + "-" + dobCB[1].getSelectedItem() + "-" + dobCB[0].getSelectedItem();
                 String user = userField.getText(), pw = new String(pwField.getPassword());
 
+                boolean flag = true;
                 if (fName.isEmpty() || lName.isEmpty() || phone.isEmpty() || email.isEmpty() || address.isEmpty() ||
                         (dobCB[2].getSelectedIndex() == -1) || (dobCB[1].getSelectedIndex() == -1) || (dobCB[0].getSelectedIndex() == -1) ||
                         user.isEmpty() || pw.isEmpty()) {
                     MyDialog.messageDialog("Input empty.", "SIGN UP ERROR", JOptionPane.ERROR_MESSAGE, null);
+                    flag = false;
                 }
-                else if (!user.isEmpty()) {
+
+                if (!user.isEmpty()) {
                     checkValidUsername(user, type[0]);
+                    flag = false;
                 }
-                else {
+
+
                     try {
                         if (type[0].equals("Doctor")) {
                             int specialty = specialtyCB.getSelectedIndex() + 1;
@@ -304,7 +311,7 @@ public class GUI {
                     } catch (SQLException ex) {
                         ex.printStackTrace();
                     }
-                }
+
             }
         });
 
